@@ -25,7 +25,7 @@ var questions = [{
   answers: [" Atila the Hun   ", " Ronan the Accuser   ", " Yondu Udonta   ", " Taserface   ", " Mr Ed   "],
   correctAnswer: "Yondu Udonta  "
 }, {
-  question: "What is the name of Quinns weapon?",
+  question: "What is the name of Yondy Udonta's weapon?",
   answers: [" The Red Arrow   ", " Arrowhead   ", " Mr Robinson   ", " Yaka Arrow   ", " Whistler   "],
   correctAnswer: "Yaka Arrow   "
 }];
@@ -57,3 +57,60 @@ var game = {
             for (var j = 0; j < questions[i].answers.length; j++) {
                 $("#subwrapper").append("<input type='radio' name='question-" +i+ "' value='" + questions[i].answers[j] + "'>" + questions[i].answers[j]);
             }
+
+        }
+    },
+    done: function(){
+        $.each($("input[name='question-0']:checked"),function() {
+            if($(this).val()==questions[0].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($("input[name='question-1']:checked"),function() {
+            if($(this).val()==questions[1].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($("input[name='question-2']:checked"),function() {
+            if($(this).val()==questions[2].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($("input[name='question-3']:checked"),function() {
+            if($(this).val()==questions[3].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($("input[name='question-4']:checked"),function() {
+            if($(this).val()==questions[4].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        $.each($("input[name='question-5']:checked"),function() {
+            if($(this).val()==questions[5].correctAnswer){
+                game.correct++;
+            } else {
+                game.incorrect++;
+            }
+        });
+        this.result();
+    },
+    result: function(){
+        clearInterval(timer);
+        $('#subwrapper h2').remove();
+        $('#subwrapper').html("<h3>All done!</h3>");
+        // print all correct and incorrect answers
+        $('#subwrapper').append("<h3>Correct Answers: "+this.correct+"</h3>");
+        $('#subwrapper').append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
+        // print questions not answered
+        $('#subwrapper').append("<h3>Unanswered: "+(questions.length-(this.incorrect+this.correct))+"</h3>");
