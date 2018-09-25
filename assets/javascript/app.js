@@ -1,9 +1,14 @@
-$('#start').on('click', function () {
-//   My game should start here; the onclick isn't working. 
-// subwrapper  remove start button and replace with questions
-//   $('#subwrapper').remove();
-  game.start();
+
+
+$(document).ready(function(){
+    $('#start').on('click', function () {
+        //   My game should start here; the onclick isn't working. 
+        // subwrapper  remove start button and replace with questions
+        //   $('#subwrapper').remove() is down the page a bit;
+          game.start();
+        });
 });
+
 
 var questions = [{
   question: "What actor played Groot in Guardians of the Galaxy ",
@@ -115,3 +120,6 @@ var game = {
         $('#subwrapper').append("<h3>Incorrect Answers: "+this.incorrect+"</h3>");
         // print questions not answered
         $('#subwrapper').append("<h3>Unanswered: "+(questions.length-(this.incorrect+this.correct))+"</h3>");
+
+
+    }}
