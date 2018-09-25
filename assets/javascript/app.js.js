@@ -1,6 +1,7 @@
 $('#start').on('click', function () {
-  // subwrapper will remove start button and replace with questions
-  // $('#subwrapper').remove();
+//   My game should start here; the onclick isn't working. 
+// subwrapper  remove start button and replace with questions
+//   $('#subwrapper').remove();
   game.start();
 });
 
